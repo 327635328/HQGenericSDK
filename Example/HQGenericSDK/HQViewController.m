@@ -24,6 +24,10 @@
     HQTestObj * obj = [[HQTestObj alloc]init];
     [obj showTest];
     
+    
+//    UIImageView * imgView = []
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

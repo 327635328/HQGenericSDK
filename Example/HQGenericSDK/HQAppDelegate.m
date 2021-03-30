@@ -7,11 +7,21 @@
 //
 
 #import "HQAppDelegate.h"
-
+#import "HQTabBarController.h"
 @implementation HQAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    HQTabBarController * tababr = [[HQTabBarController alloc]init];
+    tababr.titleSelColor = [UIColor redColor];
+    [tababr setBadgeValue:10 atItemIndex:1];
+    self.window.rootViewController = tababr;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyWindow];
+    
+    
+    
     // Override point for customization after application launch.
     return YES;
 }

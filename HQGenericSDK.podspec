@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HQGenericSDK'
-  s.version          = '0.1.1'
+  s.version          = '1.0.0'
   s.summary          = 'HQGenericSDK ObjC通用类库'
 
 # This description is used to generate tags and improve search results.
@@ -39,4 +39,9 @@ TODO: ObjC各种通用类库
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'Masonry'
+  s.dependency 'MJRefresh'
+  s.dependency 'MJExtension'
+  s.dependency 'ReactiveObjC'
+  s.dependency 'SDWebImage'
+  s.dependency 'AFNetworking'
 end
