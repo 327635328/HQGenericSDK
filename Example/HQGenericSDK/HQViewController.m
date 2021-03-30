@@ -7,7 +7,8 @@
 //
 
 #import "HQViewController.h"
-
+#import "HQTestObj.h"
+#import "Masonry.h"
 @interface HQViewController ()
 
 @end
@@ -18,6 +19,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor yellowColor];
+    
+    HQTestObj * obj = [[HQTestObj alloc]init];
+    [obj showTest];
+    
 }
 
 - (void)didReceiveMemoryWarning

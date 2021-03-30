@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'HQGenericSDK'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of HQGenericSDK.'
+  s.summary          = 'HQGenericSDK ObjC通用类库'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+TODO: ObjC各种通用类库
                        DESC
 
-  s.homepage         = 'https://github.com/TomInWorker/HQGenericSDK'
+  s.homepage         = 'https://github.com/327635328/HQGenericSDK'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'TomInWorker' => 'x128399884@163.com' }
-  s.source           = { :git => 'https://github.com/TomInWorker/HQGenericSDK.git', :tag => s.version.to_s }
+  s.author           = { '327635328' => '327635328@qq.com' }
+  s.source           = { :git => 'https://github.com/327635328/HQGenericSDK.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
@@ -38,5 +38,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'Masonry'
 end
