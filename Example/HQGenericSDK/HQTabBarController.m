@@ -7,7 +7,7 @@
 //
 
 #import "HQTabBarController.h"
-
+#import "HQNavigationController.h"
 @implementation HQTabBarModel
 
 
@@ -15,77 +15,79 @@
 
 @interface HQTabBarController ()
 
+
+
 @end
 
 @implementation HQTabBarController
 
--(void)setArr_tabBarModel:(NSArray<HQTabBarModel *> *)arr_tabBarModel
-{
-    _arr_tabBarModel = arr_tabBarModel;
-    
-}
 
 -(void)setTitleSelColor:(UIColor *)titleSelColor
 {
+    NSLog(@"%s",__FUNCTION__);
     _titleSelColor = titleSelColor;
     
 }
 
+-(void)setArr_tabBarModel:(NSArray<HQTabBarModel *> *)arr_tabBarModel
+{
+    NSLog(@"%s",__FUNCTION__);
+    _arr_tabBarModel = arr_tabBarModel;
+    
+    [self setupChildViewController];
+    
+}
 
+-(instancetype)initWithTabBarArray:(NSArray<HQTabBarModel *> *)arr_tabBarModel
+{
+    NSLog(@"%s",__FUNCTION__);
+    _arr_tabBarModel = arr_tabBarModel;
+    self = [super init];
+    if (self) {
+
+        [self setupChildViewController];
+    }
+    return self;
+}
+
+
+-(void)setupChildViewController
+{
+    [_arr_tabBarModel enumerateObjectsUsingBlock:^(HQTabBarModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        UIViewController *vc = [NSClassFromString(obj.controllerClass) new];
+        HQNavigationController *nav = [[HQNavigationController alloc] initWithRootViewController:vc];
+        UITabBarItem *item = nav.tabBarItem;
+        item.title = obj.title;
+        item.image = [UIImage imageNamed:obj.image_none_selected];
+        item.selectedImage = [[UIImage imageNamed:obj.image_selected] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [item setTitleTextAttributes:@{NSForegroundColorAttributeName : obj.title_elected_color} forState:UIControlStateSelected];
+        [self addChildViewController:nav];
+    }];
+    
+    
+    self.selectedIndex = 0;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"%s",__FUNCTION__);
+    [super viewWillAppear:animated];
+    
+    
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    self.tabBar.tintColor = kThemeColor;
+    NSLog(@"%s",__FUNCTION__);
     
-    NSArray *configureArray = @[
-                            @{
-                                @"class":@"SJDiscoverViewController",
-                                @"title":@"首页",
-                                @"image_none_selected":@"tabBar_home",
-                                @"image_selected":@"tabBar_sel_home"
-                              },
-                            
-                            @{
-                                @"class":@"SJMeViewController",
-                                @"title":@"选货",
-                                @"image_none_selected":@"tabBar_chose",
-                                @"image_selected":@"tabBar_sel_chose"
-                                },
-                            @{
-                                @"class":@"SJMeViewController",
-                                @"title":@"发现",
-                                @"image_none_selected":@"tabBar_new",
-                                @"image_selected":@"tabBar_sel_new"
-                                },
-                            @{
-                                @"class":@"SJMeViewController",
-                                @"title":@"购物车",
-                                @"image_none_selected":@"tabBar_shopCart",
-                                @"image_selected":@"tabBar_sel_shopCart"
-                                },
-                            @{
-                                @"class":@"SJMeViewController",
-                                @"title":@"我的",
-                                @"image_none_selected":@"tabBar_mine",
-                                @"image_selected":@"tabBar_sel_mine"
-                                },
-                            ];
     
-    [configureArray enumerateObjectsUsingBlock:^(NSDictionary*  _Nonnull dict, NSUInteger idx, BOOL * _Nonnull stop) {
-        UIViewController * vc = [[UIViewController alloc]init];
-//        UIViewController *vc = [NSClassFromString(dict[@"class"]) new];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        UITabBarItem *item = nav.tabBarItem;
-        item.title = dict[@"title"];
-        item.image = [UIImage imageNamed:dict[@"image_none_selected"]];
-        item.selectedImage = [[UIImage imageNamed:dict[@"image_selected"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        [item setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]} forState:UIControlStateSelected];
-        [self addChildViewController:nav];
+}
 
-    }];
-    self.selectedIndex = 0;
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    item.badgeValue = nil;
 }
 
 
@@ -94,7 +96,7 @@
     if (badgeValue < 0) {
         badgeValue = 0;
     }
-    NSString * showStr = [NSString stringWithFormat:@"%ld",badgeValue];
+    NSString * showStr = [NSString stringWithFormat:@"%zd",badgeValue];
     
     
     if (badgeValue > 99) {

@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString * title;
 @property (nonatomic,copy) NSString * image_none_selected;
 @property (nonatomic,copy) NSString * image_selected;
+@property (nonatomic,copy) UIColor  * title_elected_color;
+
 
 
 @end
@@ -25,8 +27,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HQTabBarController : UITabBarController
 
-@property (nonatomic,retain) NSArray<HQTabBarModel *> * arr_tabBarModel;
+
 @property (nonatomic,retain) UIColor * titleSelColor;
+
+@property (nonatomic,retain) NSArray<HQTabBarModel *> * arr_tabBarModel;
+
+
+
+-(instancetype)initWithTabBarArray:(NSArray <HQTabBarModel *>*)arr_tabBarModel;
+
 
 /**
  *设置哪个item上的徽标

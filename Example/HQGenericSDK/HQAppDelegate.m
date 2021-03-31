@@ -7,14 +7,15 @@
 //
 
 #import "HQAppDelegate.h"
-#import "HQTabBarController.h"
+#import "HQProTabBarController.h"
 @implementation HQAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    HQTabBarController * tababr = [[HQTabBarController alloc]init];
-    tababr.titleSelColor = [UIColor redColor];
+    
+    
+    HQProTabBarController * tababr = [[HQProTabBarController alloc]init];
     [tababr setBadgeValue:10 atItemIndex:1];
     self.window.rootViewController = tababr;
     self.window.backgroundColor = [UIColor whiteColor];
