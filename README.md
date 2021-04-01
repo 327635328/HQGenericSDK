@@ -10,6 +10,7 @@
 #HQRouter路由调用.
 #如: 触发url
 #1. 
+```ruby
 -(void)btn2Action
 {
     [HQRouter openURLRoute:@"hq://main/detail" withInfo:@{
@@ -24,7 +25,9 @@
         NSLog(@"%@",result);
     }];
 }
+```
 #2. 
+```ruby
 -(void)btnAction
 {
     [HQRouter openURLRoute:@"hq://main/select" withInfo:@{
@@ -32,9 +35,9 @@
     } completion:nil];
     
 }   
-   
+```
 #如:注册
-
+```ruby
 #+(void)load
 {
     [HQRouter registerURLRoute:@"hq://main/detail" toHandler:^(NSDictionary * _Nonnull params) {
@@ -45,7 +48,7 @@
     }];
     
 }
-
+```
 
 ## Requirements
 
