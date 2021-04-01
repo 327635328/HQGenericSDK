@@ -21,7 +21,7 @@ HQRouter路由调用.
         @"name":@"小明",
         @"number":@"1",
         @"callback":^(NSString * test){
-        NSLog(@"/////test%@",test);
+        NSLog(@"test%@",test);
     }
     } completion:^(id  _Nonnull result) {
         NSLog(@"%@",result);
