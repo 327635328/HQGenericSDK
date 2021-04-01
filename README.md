@@ -28,11 +28,8 @@ HQRouter路由调用.
 +(void)load
 {
     [HQRouter registerURLRoute:@"hq://main/detail" toHandler:^(NSDictionary * _Nonnull params) {
-        
         [HQRouter pushViewControllerWithParams:params[@"info"]];
-        
     }];
-    
     [HQRouter registerURLRoute:@"hq://main/select" toHandler:^(NSDictionary * _Nonnull params) {
         NSLog(@"%@",params);
     }];
