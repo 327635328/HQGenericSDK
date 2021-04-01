@@ -5,9 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/HQGenericSDK.svg?style=flat)](https://cocoapods.org/pods/HQGenericSDK)
 [![Platform](https://img.shields.io/cocoapods/p/HQGenericSDK.svg?style=flat)](https://cocoapods.org/pods/HQGenericSDK)
 
-## Example
+## 功能详解
 
-HQRouter路由调用.
+## HQRouter路由调用.
 
 如: 触发url
 
