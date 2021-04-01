@@ -7,9 +7,11 @@
 
 ## Example
 
-#HQRouter路由调用.
-#如: 触发url
-#1. 
+HQRouter路由调用.
+
+如: 触发url
+
+1. 
 ```ruby
 -(void)btn2Action
 {
@@ -26,7 +28,8 @@
     }];
 }
 ```
-#2. 
+
+2. 
 ```ruby
 -(void)btnAction
 {
@@ -36,7 +39,8 @@
     
 }   
 ```
-#如:注册
+
+如:注册
 ```ruby
 #+(void)load
 {
