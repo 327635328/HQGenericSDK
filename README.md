@@ -42,7 +42,7 @@ HQRouter路由调用.
 
 如:注册
 ```ruby
-#+(void)load
++(void)load
 {
     [HQRouter registerURLRoute:@"hq://main/detail" toHandler:^(NSDictionary * _Nonnull params) {
         [HQRouter pushViewControllerWithParams:params[@"info"]];
