@@ -8,6 +8,8 @@
 ## Example
 
 HQRouter路由调用.
+
+
 如: 触发url
 1. [HQRouter openURLRoute:@"hq://main/detail" withInfo:@{
         @"navigationVC":self.navigationController,
@@ -24,7 +26,11 @@ HQRouter路由调用.
 2. [HQRouter openURLRoute:@"hq://main/select" withInfo:@{
         @"proid":@"2222"
    } completion:nil];
-   如:注册
+   
+   
+   
+   
+如:注册
 +(void)load
 {
     [HQRouter registerURLRoute:@"hq://main/detail" toHandler:^(NSDictionary * _Nonnull params) {
