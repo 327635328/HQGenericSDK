@@ -15,17 +15,21 @@ HQRouter路由调用.
 ```ruby
 -(void)btn2Action
 {
-    [HQRouter openURLRoute:@"hq://main/detail" withInfo:@{
-        @"navigationVC":self.navigationController,
-        @"pushVC":@"HQPushViewController",
-        @"name":@"小明",
-        @"number":@"1",
-        @"callback":^(NSString * test){
-        NSLog(@"test%@",test);
-    }
-    } completion:^(id  _Nonnull result) {
+    [HQRouter openURLRoute:@"hq://main/detail" withInfo:@
+        {
+            @"navigationVC":self.navigationController,
+            @"pushVC":@"HQPushViewController",
+            @"name":@"小明",
+            @"number":@"1",
+            @"callback":^(NSString * test)
+            {
+            NSLog(@"test%@",test);
+            }
+        } completion:^(id  _Nonnull result) 
+        {
         NSLog(@"%@",result);
-    }];
+        }
+    ];
 }
 ```
 
