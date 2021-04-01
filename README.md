@@ -7,11 +7,10 @@
 
 ## Example
 
-HQRouter路由调用.
-
-
-如: 触发url
-1. [HQRouter openURLRoute:@"hq://main/detail" withInfo:@{
+#HQRouter路由调用.
+#如: 触发url
+#1. 
+[HQRouter openURLRoute:@"hq://main/detail" withInfo:@{
         @"navigationVC":self.navigationController,
         @"pushVC":@"HQPushViewController",
         @"name":@"小明",
@@ -23,16 +22,17 @@ HQRouter路由调用.
     } completion:^(id  _Nonnull result) {
         NSLog(@"%@",result);
   }];
-2. [HQRouter openURLRoute:@"hq://main/select" withInfo:@{
+#2. 
+[HQRouter openURLRoute:@"hq://main/select" withInfo:@{
         @"proid":@"2222"
    } completion:nil];
    
    
    
    
-如:注册
+#如:注册
 
-+(void)load
+#+(void)load
 {
     [HQRouter registerURLRoute:@"hq://main/detail" toHandler:^(NSDictionary * _Nonnull params) {
         [HQRouter pushViewControllerWithParams:params[@"info"]];
