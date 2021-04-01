@@ -31,6 +31,7 @@ HQRouter路由调用.
    
    
 如:注册
+
 +(void)load
 {
     [HQRouter registerURLRoute:@"hq://main/detail" toHandler:^(NSDictionary * _Nonnull params) {
@@ -41,7 +42,7 @@ HQRouter路由调用.
     }];
     
 }
-如:
+
 
 ## Requirements
 
